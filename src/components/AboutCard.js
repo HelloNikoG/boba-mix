@@ -13,7 +13,7 @@ function AboutCard() {
 
 				<Col md="6">
 					<Card>
-						<CardText>
+						<CardText className="mx-3 my-3">
 							<h3>What is Boba? </h3>
 							<p>
 								Created in Taiwan in the 1980s, with much dispute over what

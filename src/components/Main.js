@@ -12,7 +12,9 @@ function Main() {
 				</Col>
 			</Row>
 			<Row>
-				<OrderCard />
+				<Col className="mt-3">
+					<OrderCard />
+				</Col>
 			</Row>
 			<div className="col-md-2">hello</div>
 		</Container>

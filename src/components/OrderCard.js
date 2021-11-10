@@ -66,11 +66,15 @@ class OrderCard extends Component {
 			(x) => this.state.toppings[x]
 		);
 		return (
-			<Col className="mt-3">
-				<Alert color="info" isOpen={this.state.alert} className="sticky-top ">
+			<>
+				<Alert
+					color="info"
+					isOpen={this.state.alert}
+					className="shadow sticky-top "
+				>
 					<Row className="align-items-center">
 						<Col md="12">
-							<h4>Building your order:</h4>
+							<h2>Building your order:</h2>
 							<hr />
 						</Col>
 					</Row>
@@ -113,446 +117,462 @@ class OrderCard extends Component {
 					</Row>
 				</Alert>
 
-				<Form onSubmit={this.handleSubmit}>
-					<Card>
-						<FormText color="muted">
-							Input your name and number and we will text you when your order is
-							ready!
-						</FormText>
-
-						<Row>
-							<Col>
-								<Label htmlFor="customer name">
-									<Input
-										type="text"
-										id="customer name"
-										name="name"
-										value={this.state.name}
-										placeholder="name"
-										onChange={this.handleSelection}
-									/>
-								</Label>
-							</Col>
-							<Col>
-								<Label htmlFor="phone number">
-									<Input
-										type="tel"
-										id="phone number"
-										name="phoneNum"
-										value={this.state.phoneNum}
-										placeholder="phone number"
-										onChange={this.handleSelection}
-									/>
-								</Label>
-							</Col>
-						</Row>
-					</Card>
-
+				<Card className="shadow">
 					<Row>
 						<Col>
-							<Card className="mt-3">
-								<Row>
-									<Col className="m-3">
-										<h4>Size & Temperature</h4>
-									</Col>
-								</Row>
-
-								<Row>
-									<Col>
-										<Card className="border-0">
-											<CardBody>
-												<Button
-													block
-													className="border-danger btn-block "
-													onClick={this.handleSelection}
-													name="temp"
-													value="Hot"
-													active={this.state.size === 'Hot' ? true : false}
-													color={
-														this.state.temp === 'Hot' ? 'danger' : 'transparent'
-													}
-												>
-													Hot
-												</Button>
-											</CardBody>
-										</Card>
-									</Col>
-									<Col>
-										<Card className="border-0">
-											<CardBody>
-												<Button
-													className="border-primary btn-block"
-													onClick={this.handleSelection}
-													name="temp"
-													value="Iced"
-													active={this.state.size === 'Iced' ? true : false}
-													color={
-														this.state.temp === 'Iced'
-															? 'primary'
-															: 'transparent'
-													}
-												>
-													Iced
-												</Button>
-											</CardBody>
-										</Card>
-									</Col>
-								</Row>
-								<Row className="mt-3">
-									<Col lg="4">
-										<Card>
-											<CardBody className="p-1">
-												<Button
-													className="p-2 btn-block border-dark"
-													onClick={this.handleSelection}
-													name="size"
-													value="Small"
-													active={this.state.size === 'Small'}
-													color={
-														this.state.size === 'Small' ? 'info' : 'transparent'
-													}
-												>
-													Small (8oz)
-												</Button>
-											</CardBody>
-										</Card>
-									</Col>
-									<Col lg="4">
-										<Card>
-											<CardBody className="p-1">
-												<Button
-													className="p-2 btn-block border-dark"
-													onClick={this.handleSelection}
-													name="size"
-													value="Medium"
-													active={this.state.size === 'Medium'}
-													color={
-														this.state.size === 'Medium'
-															? 'info'
-															: 'transparent'
-													}
-												>
-													Medium (12oz)
-												</Button>
-											</CardBody>
-										</Card>
-									</Col>
-									<Col lg="4">
-										<Card>
-											<CardBody className="p-1">
-												<Button
-													className="p-2 btn-block border-dark"
-													onClick={this.handleSelection}
-													name="size"
-													value="Large"
-													active={this.state.size === 'Large'}
-													color={
-														this.state.size === 'Large' ? 'info' : 'transparent'
-													}
-												>
-													Large (16oz)
-												</Button>
-											</CardBody>
-										</Card>
-									</Col>
-								</Row>
+							<Card className="border-0 mx-2">
+								<FormText color="muted">
+									Input your name and number and we will text you when your
+									order is ready!
+								</FormText>
 							</Card>
 						</Col>
 					</Row>
-					<Row className="mt-3">
-						<Col md="6">
-							<Card>
-								<CardImg src="assets/percent.jpg" />
-								<CardImgOverlay>
-									<Row>
-										<Col>
-											<h4>Sweetness</h4>
-										</Col>
-									</Row>
-								</CardImgOverlay>
 
-								<Row className="mt-3">
-									<Col lg="4">
-										<Card>
-											<CardBody>
-												<Button
-													className="border-dark btn-block "
-													onClick={this.handleSelection}
-													name="sugarLevel"
-													value="25%"
-													active={
-														this.state.sugarLevel === '25%' ? true : false
-													}
-													color={
-														this.state.sugarLevel === '25%'
-															? 'info'
-															: 'transparent'
-													}
-												>
-													25%
-												</Button>
-											</CardBody>
-										</Card>
-									</Col>
-									<Col lg="4">
-										<Card>
-											<CardBody>
-												<Button
-													className="btn-block border-dark"
-													onClick={this.handleSelection}
-													name="sugarLevel"
-													value="50%"
-													active={this.state.sugarLevel === '50%'}
-													color={
-														this.state.sugarLevel === '50%'
-															? 'info'
-															: 'transparent'
-													}
-												>
-													50%
-												</Button>
-											</CardBody>
-										</Card>
-									</Col>
-									<Col lg="4">
-										<Card>
-											<CardBody>
-												<Button
-													className="btn-block border-dark"
-													onClick={this.handleSelection}
-													name="sugarLevel"
-													value="75%"
-													active={this.state.sugarLevel === '75%'}
-													color={
-														this.state.sugarLevel === '75%'
-															? 'info'
-															: 'transparent'
-													}
-												>
-													75%
-												</Button>
-											</CardBody>
-										</Card>
-									</Col>
-								</Row>
-							</Card>
+					<Row>
+						<Col m="6">
+							<Label htmlFor="customer name">
+								<Input
+									className="mx-1 my-1"
+									type="text"
+									id="customer name"
+									name="name"
+									value={this.state.name}
+									placeholder="name"
+									onChange={this.handleSelection}
+								/>
+							</Label>
 						</Col>
-
-						<Col md="6">
-							<Card>
-								<CardImg src="assets/bottles.jpg" />
-								<CardImgOverlay>
-									<Row>
-										<Col>
-											<h4>Tea base</h4>
-										</Col>
-									</Row>
-								</CardImgOverlay>
-								<Row>
-									<Col>
-										<Card>
-											<CardBody>
-												<Button
-													className="btn-block border-dark"
-													onClick={this.handleSelection}
-													name="teaBase"
-													value="milk tea"
-													active={this.state.teaBase === 'milk tea'}
-													color={
-														this.state.teaBase === 'milk tea'
-															? 'info'
-															: 'transparent'
-													}
-												>
-													Milk Tea
-												</Button>
-											</CardBody>
-										</Card>
-									</Col>
-									<Col>
-										<Card>
-											<CardBody>
-												<Button
-													className="btn-block border-dark"
-													onClick={this.handleSelection}
-													name="teaBase"
-													value="black"
-													active={this.state.teaBase === 'black'}
-													color={
-														this.state.teaBase === 'black'
-															? 'info'
-															: 'transparent'
-													}
-												>
-													Black Tea
-												</Button>
-											</CardBody>
-										</Card>
-									</Col>
-									<Col>
-										<Card>
-											<CardBody>
-												<Button
-													className="btn-block border-dark"
-													onClick={this.handleSelection}
-													name="teaBase"
-													value="green"
-													active={this.state.teaBase === 'green'}
-													color={
-														this.state.teaBase === 'green'
-															? 'info'
-															: 'transparent'
-													}
-												>
-													Green Tea
-												</Button>
-											</CardBody>
-										</Card>
-									</Col>
-									<Col>
-										<Card>
-											<CardBody>
-												<Button
-													className="btn-block border-dark"
-													onClick={this.handleSelection}
-													name="teaBase"
-													value="oolong"
-													active={this.state.teaBase === 'oolong'}
-													color={
-														this.state.teaBase === 'oolong'
-															? 'info'
-															: 'transparent'
-													}
-												>
-													Oolong Tea
-												</Button>
-											</CardBody>
-										</Card>
-									</Col>
-								</Row>
-							</Card>
-						</Col>
-					</Row>
-					<Row className="mt-3">
 						<Col>
-							<Card>
-								<CardImg src="assets/bobaCup.jpg" />
-								<CardImgOverlay>
-									<Row>
-										<Col>
-											<h4>Toppings</h4>
-										</Col>
-									</Row>
-								</CardImgOverlay>
-
-								<Row className="mt-3">
-									<Col>
-										<Card>
-											<CardBody>
-												<CardTitle />
-												Boba Pearls
-												<Input
-													type="checkbox"
-													value="Boba Pearls"
-													onChange={this.handleToppings}
-												>
-													Boba Pearls
-												</Input>
-											</CardBody>
-										</Card>
-									</Col>
-									<Col>
-										<Card>
-											<CardBody>
-												<CardTitle />
-												<h5>Adzuki Bean</h5>
-
-												<Input
-													type="checkbox"
-													value="Adzuki Bean"
-													onChange={this.handleToppings}
-												>
-													Red Bean
-												</Input>
-											</CardBody>
-										</Card>
-									</Col>
-									<Col>
-										<Card>
-											<CardBody>
-												<CardTitle />
-												Tea Jelly
-												<Input
-													type="checkbox"
-													value="Tea Jelly"
-													onChange={this.handleToppings}
-												>
-													Tea Jelly
-												</Input>
-											</CardBody>
-										</Card>
-									</Col>
-								</Row>
-
-								<Row className="mt-3">
-									<Col>
-										<Card>
-											<CardBody>
-												<CardTitle />
-												Pudding
-												<Input
-													type="checkbox"
-													value="Pudding"
-													onChange={this.handleToppings}
-												>
-													Pudding
-												</Input>
-											</CardBody>
-										</Card>
-									</Col>
-									<Col>
-										<Card>
-											<CardBody>
-												<CardTitle />
-												Mixed Fruit
-												<Input
-													type="checkbox"
-													value="Mixed Fruit"
-													onChange={this.handleToppings}
-												>
-													Miced Fruit
-												</Input>
-											</CardBody>
-										</Card>
-									</Col>
-									<Col>
-										<Card>
-											<CardBody>
-												<CardTitle />
-												Lychee Jelly
-												<Input
-													type="checkbox"
-													value="Lychee Jelly"
-													onChange={this.handleToppings}
-												>
-													Lychee Jelly
-												</Input>
-											</CardBody>
-										</Card>
-									</Col>
-								</Row>
-							</Card>
+							<Label htmlFor="phone number">
+								<Input
+									className="mx-1 my-1"
+									type="tel"
+									id="phone number"
+									name="phoneNum"
+									value={this.state.phoneNum}
+									placeholder="phone number"
+									onChange={this.handleSelection}
+								/>
+							</Label>
 						</Col>
 					</Row>
-				</Form>
+				</Card>
+
+				<Row>
+					<Col>
+						<Card className="shadow mt-3">
+							<Row>
+								<Col className="m-3">
+									<h2>Size & Temperature</h2>
+								</Col>
+							</Row>
+
+							<Row>
+								<Col>
+									<Card className="border-0">
+										<CardBody>
+											<Button
+												block
+												className="border-danger btn-block "
+												onClick={this.handleSelection}
+												name="temp"
+												value="Hot"
+												active={this.state.size === 'Hot' ? true : false}
+												color={
+													this.state.temp === 'Hot' ? 'danger' : 'transparent'
+												}
+											>
+												Hot
+											</Button>
+										</CardBody>
+									</Card>
+								</Col>
+								<Col>
+									<Card className="border-0">
+										<CardBody>
+											<Button
+												block
+												className="border-primary btn-block"
+												onClick={this.handleSelection}
+												name="temp"
+												value="Iced"
+												active={this.state.size === 'Iced' ? true : false}
+												color={
+													this.state.temp === 'Iced' ? 'primary' : 'transparent'
+												}
+											>
+												Iced
+											</Button>
+										</CardBody>
+									</Card>
+								</Col>
+							</Row>
+							<Row className="mt-3">
+								<Col lg="4">
+									<Card className="border-0">
+										<CardBody className="p-1">
+											<Button
+												block
+												className="p-2  border-dark"
+												onClick={this.handleSelection}
+												name="size"
+												value="Small"
+												active={this.state.size === 'Small'}
+												color={
+													this.state.size === 'Small'
+														? 'secondary'
+														: 'transparent'
+												}
+											>
+												Small (8oz)
+											</Button>
+										</CardBody>
+									</Card>
+								</Col>
+								<Col lg="4">
+									<Card className="border-0">
+										<CardBody className="p-1">
+											<Button
+												block
+												className="p-2 border-dark"
+												onClick={this.handleSelection}
+												name="size"
+												value="Medium"
+												active={this.state.size === 'Medium'}
+												color={
+													this.state.size === 'Medium'
+														? 'secondary'
+														: 'transparent'
+												}
+											>
+												Medium (12oz)
+											</Button>
+										</CardBody>
+									</Card>
+								</Col>
+								<Col lg="4">
+									<Card className="border-0">
+										<CardBody className="p-1">
+											<Button
+												block
+												className="p-2  border-dark"
+												onClick={this.handleSelection}
+												name="size"
+												value="Large"
+												active={this.state.size === 'Large'}
+												color={
+													this.state.size === 'Large'
+														? 'secondary'
+														: 'transparent'
+												}
+											>
+												Large (16oz)
+											</Button>
+										</CardBody>
+									</Card>
+								</Col>
+							</Row>
+						</Card>
+					</Col>
+				</Row>
+				<Row className="mt-3">
+					<Col md="6">
+						<Card className="shadow">
+							<CardImg src="assets/percent.jpg" />
+							<CardImgOverlay>
+								<Row>
+									<Col>
+										<h2>Sweetness</h2>
+									</Col>
+								</Row>
+							</CardImgOverlay>
+
+							<Row className="mt-3">
+								<Col lg="4">
+									<Card className="border-0">
+										<CardBody>
+											<Button
+												block
+												className="border-dark"
+												onClick={this.handleSelection}
+												name="sugarLevel"
+												value="25%"
+												active={this.state.sugarLevel === '25%' ? true : false}
+												color={
+													this.state.sugarLevel === '25%'
+														? 'secondary'
+														: 'transparent'
+												}
+											>
+												25%
+											</Button>
+										</CardBody>
+									</Card>
+								</Col>
+								<Col lg="4">
+									<Card className="border-0">
+										<CardBody>
+											<Button
+												block
+												className="border-dark"
+												onClick={this.handleSelection}
+												name="sugarLevel"
+												value="50%"
+												active={this.state.sugarLevel === '50%'}
+												color={
+													this.state.sugarLevel === '50%'
+														? 'secondary'
+														: 'transparent'
+												}
+											>
+												50%
+											</Button>
+										</CardBody>
+									</Card>
+								</Col>
+								<Col lg="4">
+									<Card className="border-0">
+										<CardBody>
+											<Button
+												block
+												className="border-dark"
+												onClick={this.handleSelection}
+												name="sugarLevel"
+												value="75%"
+												active={this.state.sugarLevel === '75%'}
+												color={
+													this.state.sugarLevel === '75%'
+														? 'secondary'
+														: 'transparent'
+												}
+											>
+												75%
+											</Button>
+										</CardBody>
+									</Card>
+								</Col>
+							</Row>
+						</Card>
+					</Col>
+
+					<Col md="6">
+						<Card className="shadow">
+							<CardImg src="assets/bottles.jpg" />
+							<CardImgOverlay>
+								<Row>
+									<Col>
+										<h2>Tea base</h2>
+									</Col>
+								</Row>
+							</CardImgOverlay>
+							<Row className="mt-3">
+								<Col md="3">
+									<Card className="border-0">
+										<CardBody>
+											<Button
+												block
+												className="border-dark"
+												onClick={this.handleSelection}
+												name="teaBase"
+												value="milk tea"
+												active={this.state.teaBase === 'milk tea'}
+												color={
+													this.state.teaBase === 'milk tea'
+														? 'secondary'
+														: 'transparent'
+												}
+											>
+												Milk Tea
+											</Button>
+										</CardBody>
+									</Card>
+								</Col>
+								<Col md="3">
+									<Card className="border-0">
+										<CardBody>
+											<Button
+												block
+												className="border-dark"
+												onClick={this.handleSelection}
+												name="teaBase"
+												value="black"
+												active={this.state.teaBase === 'black'}
+												color={
+													this.state.teaBase === 'black'
+														? 'secondary'
+														: 'transparent'
+												}
+											>
+												Black Tea
+											</Button>
+										</CardBody>
+									</Card>
+								</Col>
+								<Col md="3">
+									<Card className="border-0">
+										<CardBody>
+											<Button
+												block
+												className="border-dark "
+												onClick={this.handleSelection}
+												name="teaBase"
+												value="green"
+												active={this.state.teaBase === 'green'}
+												color={
+													this.state.teaBase === 'green'
+														? 'secondary'
+														: 'transparent'
+												}
+											>
+												Green Tea
+											</Button>
+										</CardBody>
+									</Card>
+								</Col>
+								<Col md="3">
+									<Card className="border-0">
+										<CardBody>
+											<Button
+												block
+												className="border-dark px-1"
+												onClick={this.handleSelection}
+												name="teaBase"
+												value="oolong"
+												active={this.state.teaBase === 'oolong'}
+												color={
+													this.state.teaBase === 'oolong'
+														? 'secondary'
+														: 'transparent'
+												}
+											>
+												Oolong Tea
+											</Button>
+										</CardBody>
+									</Card>
+								</Col>
+							</Row>
+						</Card>
+					</Col>
+				</Row>
 				<Row className="mt-3">
 					<Col>
-						<Button className="btn-block" onClick={this.handleSubmit}>
+						<Card>
+							<CardImg src="assets/bobaCup.jpg" />
+							<CardImgOverlay>
+								<Row>
+									<Col>
+										<h2>Toppings</h2>
+									</Col>
+								</Row>
+							</CardImgOverlay>
+
+							<Row className="mt-3">
+								<Col>
+									<Card className="shadow-sm ">
+										<CardBody>
+											<CardTitle />
+											Boba Pearls
+											<Input
+												type="checkbox"
+												value="Boba Pearls"
+												onChange={this.handleToppings}
+											>
+												Boba Pearls
+											</Input>
+										</CardBody>
+									</Card>
+								</Col>
+								<Col>
+									<Card>
+										<CardBody>
+											<CardTitle />
+											<h5>Adzuki Bean</h5>
+
+											<Input
+												type="checkbox"
+												value="Adzuki Bean"
+												onChange={this.handleToppings}
+											>
+												Red Bean
+											</Input>
+										</CardBody>
+									</Card>
+								</Col>
+								<Col>
+									<Card>
+										<CardBody>
+											<CardTitle />
+											Tea Jelly
+											<Input
+												type="checkbox"
+												value="Tea Jelly"
+												onChange={this.handleToppings}
+											>
+												Tea Jelly
+											</Input>
+										</CardBody>
+									</Card>
+								</Col>
+							</Row>
+
+							<Row className="mt-3">
+								<Col>
+									<Card>
+										<CardBody>
+											<CardTitle />
+											Pudding
+											<Input
+												type="checkbox"
+												value="Pudding"
+												onChange={this.handleToppings}
+											>
+												Pudding
+											</Input>
+										</CardBody>
+									</Card>
+								</Col>
+								<Col>
+									<Card>
+										<CardBody>
+											<CardTitle />
+											Mixed Fruit
+											<Input
+												type="checkbox"
+												value="Mixed Fruit"
+												onChange={this.handleToppings}
+											>
+												Mixed Fruit
+											</Input>
+										</CardBody>
+									</Card>
+								</Col>
+								<Col>
+									<Card>
+										<CardBody>
+											<CardTitle />
+											Lychee Jelly Lychee Jelly
+											<Input
+												type="checkbox"
+												value="Lychee Jelly"
+												onChange={this.handleToppings}
+											></Input>
+										</CardBody>
+									</Card>
+								</Col>
+							</Row>
+						</Card>
+					</Col>
+				</Row>
+
+				<Row className="mt-3">
+					<Col>
+						<Button block onClick={this.handleSubmit}>
 							SUBMIT
 						</Button>
 					</Col>
 				</Row>
-			</Col>
+			</>
 		);
 	}
 }

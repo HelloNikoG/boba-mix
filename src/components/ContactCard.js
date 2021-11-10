@@ -13,7 +13,7 @@ import {
 	InputGroup,
 	InputGroupText,
 } from 'reactstrap';
-// import { BsInstagram } from 'react-icons/bs';
+import { BsFacebook, BsInstagram, BsTwitter } from 'react-icons/bs';
 
 function ContactCard() {
 	const handleSubmit = (e) => {
@@ -36,15 +36,37 @@ function ContactCard() {
 								<h3>Get in touch </h3>
 							</CardTitle>
 							<CardText>
+								<p>Let us know how were doing...</p>
 								<InputGroup>
 									<InputGroupText>Name</InputGroupText>
-									<Input />
+									<Input type="text" />
+								</InputGroup>
+								<br />
+								<InputGroup>
+									<InputGroupText>Comment</InputGroupText>
+									<Input type="textarea" />
 								</InputGroup>
 							</CardText>
-							<Button onClick={handleSubmit}>Submit</Button>
+							<Button block color="danger" onClick={handleSubmit}>
+								Submit
+							</Button>
 						</CardBody>
 						<Row>
-							<Col>{/* <BsInstagram /> */}</Col>
+							<Col style={{ alignItems: 'center' }}>
+								<a href="">
+									<BsInstagram size={25} />
+								</a>
+							</Col>
+							<Col>
+								<a href="">
+									<BsTwitter size={25} />
+								</a>
+							</Col>
+							<Col>
+								<a href="">
+									<BsFacebook size={25} />
+								</a>
+							</Col>
 						</Row>
 					</Card>
 				</Col>
