@@ -1,25 +1,24 @@
-import logo from './logo.svg';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import NavComponent from './components/NavComponent';
+import Main from './components/Main';
+import AboutCard from './components/AboutCard';
+import ContactCard from './components/ContactCard';
+import { Row } from 'reactstrap';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<BrowserRouter>
+			<NavComponent />
+			<Routes>
+				<Route path="/" exact element={<Main />} />
+				<Route path="/order" element={<Main />} />
+				<Route path="/whatisboba" element={<AboutCard />} />
+				<Route path="/contactus" element={<ContactCard />} />
+			</Routes>
+		</BrowserRouter>
+	);
 }
 
 export default App;
