@@ -14,6 +14,8 @@ import {
 	CardBody,
 	CardImgOverlay,
 	CardTitle,
+	Modal,
+	ModalBody,
 } from 'reactstrap';
 
 class OrderCard extends Component {
@@ -27,7 +29,7 @@ class OrderCard extends Component {
 			teaBase: ' ',
 			name: '',
 			phoneNum: '',
-			alert: false,
+			modalOpen: false,
 			toppings: {
 				boba: false,
 				teaJelly: false,
@@ -39,10 +41,15 @@ class OrderCard extends Component {
 		};
 	}
 
+	toggleModal = () => {
+		this.setState({
+			modalOpen: !this.state.modalOpen,
+		});
+	};
+
 	handleSelection = (e) => {
 		this.setState({
 			[e.target.name]: e.target.value,
-			alert: true,
 		});
 	};
 
@@ -68,58 +75,63 @@ class OrderCard extends Component {
 		);
 		return (
 			<>
-				<Alert
+				<Modal
+					fade
 					color="danger"
-					isOpen={this.state.alert}
-					className="shadow sticky-top "
+					toggle={this.toggleModal}
+					id="orderModal"
+					isOpen={this.state.modalOpen}
+					// className="shadow sticky-top "
 				>
-					<Row className="align-items-center">
-						<Col md="12">
-							<h2>Building your order:</h2>
-							<hr />
-						</Col>
-					</Row>
-					<Row>
-						<Col>
-							Temp:{' '}
-							<p>
-								<strong>{this.state.temp}</strong>
-							</p>
-						</Col>
-						<Col>
-							Size:
-							<p>
-								<strong>{this.state.size}</strong>
-							</p>
-						</Col>
-					</Row>
-					<Row>
-						<Col>
-							Sugar:{' '}
-							<p>
-								<strong>{this.state.sugarLevel}</strong>
-							</p>
-						</Col>
+					<ModalBody>
+						<Row className="align-items-center">
+							<Col md="12">
+								<h2>Building your order:</h2>
+								<hr />
+							</Col>
+						</Row>
+						<Row>
+							<Col>
+								Temp:{' '}
+								<p>
+									<strong>{this.state.temp}</strong>
+								</p>
+							</Col>
+							<Col>
+								Size:
+								<p>
+									<strong>{this.state.size}</strong>
+								</p>
+							</Col>
+						</Row>
+						<Row>
+							<Col>
+								Sugar:{' '}
+								<p>
+									<strong>{this.state.sugarLevel}</strong>
+								</p>
+							</Col>
 
-						<Col>
-							Tea base:
-							<p>
-								<strong>{this.state.teaBase}</strong>
-							</p>
-						</Col>
-					</Row>
-					<Row>
-						<Col>
-							Toppings:
-							<p>
-								<strong>{`${displayToppings}`}</strong>
-							</p>
-						</Col>
-					</Row>
-				</Alert>
+							<Col>
+								Tea base:
+								<p>
+									<strong>{this.state.teaBase}</strong>
+								</p>
+							</Col>
+						</Row>
+						<Row>
+							<Col>
+								Toppings:
+								<p>
+									<strong>{`${displayToppings}`}</strong>
+								</p>
+							</Col>
+						</Row>
+					</ModalBody>
+				</Modal>
 				<Row>
 					<Col>
-						<Card className="shadow mt-3">
+						<Card className="shadow">
 							<Row>
 								<Col className="m-3">
 									<h2>Order details</h2>
@@ -294,7 +306,7 @@ class OrderCard extends Component {
 					</Col>
 				</Row>
 				<Row className="mt-3">
-					<Col>
+					<Col md="6">
 						<Card className="shadow">
 							<CardImg src="assets/percent.jpg" />
 							<CardImgOverlay>
@@ -372,8 +384,7 @@ class OrderCard extends Component {
 							</Row>
 						</Card>
 					</Col>
-
-					<Col>
+					<Col md="6">
 						<Card className="shadow">
 							<CardImg src="assets/bottles.jpg" />
 							<CardImgOverlay>
@@ -574,7 +585,13 @@ class OrderCard extends Component {
 
 				<Row className="mt-3 mb-3">
 					<Col>
-						<Button block color="danger" onClick={this.handleSubmit}>
+						<Button
+							block
+							color="danger"
+							data-toggle="modal"
+							data-target="#orderModal"
+							onClick={this.toggleModal}
+						>
 							SUBMIT
 						</Button>
 					</Col>
