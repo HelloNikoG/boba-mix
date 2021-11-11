@@ -30,7 +30,7 @@ function ContactCard() {
 				</Col>
 
 				<Col md="6">
-					<Card>
+					<Card className="pb-3">
 						<CardBody>
 							<CardTitle>
 								<h3>Get in touch </h3>
@@ -51,19 +51,15 @@ function ContactCard() {
 								Submit
 							</Button>
 						</CardBody>
-						<Row>
-							<Col style={{ alignItems: 'center' }}>
-								<a href="">
-									<BsInstagram size={25} />
-								</a>
-
-								<a href="">
-									<BsTwitter size={25} />
-								</a>
-
-								<a href="">
-									<BsFacebook size={25} />
-								</a>
+						<Row className="mx-5">
+							<Col>
+								<BsInstagram size={50} />
+							</Col>
+							<Col>
+								<BsTwitter size={50} />
+							</Col>
+							<Col>
+								<BsFacebook size={50} />
 							</Col>
 						</Row>
 					</Card>

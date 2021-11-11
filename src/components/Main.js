@@ -16,7 +16,6 @@ function Main() {
 					<OrderCard />
 				</Col>
 			</Row>
-			<div className="col-md-2">hello</div>
 		</Container>
 	);
 }
