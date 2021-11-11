@@ -9,7 +9,11 @@ function ImageCard() {
 
 	return (
 		<Card className="shadow">
-			<CardImg fluid className="rounded-0" src="/assets/teamix.jpg"></CardImg>
+			<CardImg
+				fluid
+				className=" card-image rounded-0"
+				src="/assets/teamix.jpg"
+			></CardImg>
 			<CardImgOverlay>
 				<CardTitle style={textColor}>
 					<h2 style={align}>Start Your Order</h2>

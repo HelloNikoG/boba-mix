@@ -1,3 +1,8 @@
+body {
+	font-family: 'Quicksand', sans-serif;
+	background-color: #e5dfdf;
+}
+
 h4,
 h3,
 h2 {
@@ -5,5 +10,42 @@ h2 {
 	padding-left: 10px;
 }
 
-input[type='checkbox'] {
+.checkbox {
+	position: absolute;
+	left: 5vw;
+}
+.boxx input {
+	position: relative;
+}
+.boxx input::before {
+	position: absolute;
+	content: '';
+	height: 30px;
+	width: 30px;
+	background-color: #fff;
+	border: 2px solid black;
+	border-radius: 50%;
+	/* top: 80%;
+	left: 50%; */
+	top: 80%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	cursor: pointer;
+	transition: 0.3s all ease;
+}
+.boxx input:checked::before {
+	background-color: darkcyan;
+	border: 1px solid darkcyan;
+}
+.boxx input:checked::after {
+	position: absolute;
+	content: '\f00c';
+	font-family: 'FontAwesome';
+	color: #fff;
+	top: -5%;
+	left: -5%;
+}
+
+.test {
+	align-items: center;
 }

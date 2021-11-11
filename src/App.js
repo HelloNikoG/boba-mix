@@ -5,7 +5,6 @@ import NavComponent from './components/NavComponent';
 import Main from './components/Main';
 import AboutCard from './components/AboutCard';
 import ContactCard from './components/ContactCard';
-import { Row } from 'reactstrap';
 
 function App() {
 	return (

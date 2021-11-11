@@ -8,7 +8,7 @@ function NavComponent() {
 	};
 	return (
 		<>
-			<Navbar color="dark" className="border-bottom border-dark p-0">
+			<Navbar color="secondary" className="border-bottom border-dark p-0">
 				<NavbarBrand className="m-0 p-0 mr-auto">
 					<img src="/assets/logo.png" width="75" height="75" />
 				</NavbarBrand>

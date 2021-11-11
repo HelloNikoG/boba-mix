@@ -54,6 +54,7 @@ class OrderCard extends Component {
 	};
 
 	handleToppings = (e) => {
+		this.setState({ alert: true });
 		let { value, checked } = e.target;
 		this.setState((e) => {
 			let selected = e.toppings;
@@ -68,7 +69,7 @@ class OrderCard extends Component {
 		return (
 			<>
 				<Alert
-					color="info"
+					color="danger"
 					isOpen={this.state.alert}
 					className="shadow sticky-top "
 				>
@@ -116,48 +117,65 @@ class OrderCard extends Component {
 						</Col>
 					</Row>
 				</Alert>
-
-				<Card className="shadow">
-					<Row>
-						<Col>
-							<Card className="border-0 mx-2">
-								<FormText color="muted">
-									Input your name and number and we will text you when your
-									order is ready!
-								</FormText>
-							</Card>
-						</Col>
-					</Row>
-
-					<Row>
-						<Col m="6">
-							<Label htmlFor="customer name">
-								<Input
-									className="mx-1 my-1"
-									type="text"
-									id="customer name"
-									name="name"
-									value={this.state.name}
-									placeholder="name"
-									onChange={this.handleSelection}
-								/>
-							</Label>
-						</Col>
-						<Col>
-							<Label htmlFor="phone number">
-								<Input
-									className="mx-1 my-1"
-									type="tel"
-									id="phone number"
-									name="phoneNum"
-									value={this.state.phoneNum}
-									placeholder="phone number"
-									onChange={this.handleSelection}
-								/>
-							</Label>
-						</Col>
-					</Row>
-				</Card>
+				<Row>
+					<Col>
+						<Card className="shadow mt-3">
+							<Row>
+								<Col className="m-3">
+									<h2>Order details</h2>
+								</Col>
+							</Row>
+							<Row className="mx-1">
+								<Col xs="12">
+									<Card className="border-0">
+										<CardBody>
+											<FormText color="muted">
+												Input your name and number and we will text you when
+												your order is ready!
+											</FormText>
+										</CardBody>
+									</Card>
+								</Col>
+							</Row>
+							<Row>
+								<Col className="mx-3">
+									<Card className="border-0">
+										<CardBody>
+											<Label htmlFor="customer name">
+												<Input
+													className="mx-1 my-1"
+													type="text"
+													id="customer name"
+													name="name"
+													value={this.state.name}
+													placeholder="name"
+													onChange={this.handleSelection}
+												/>
+											</Label>
+										</CardBody>
+									</Card>
+								</Col>
+								<Col className="mx-3">
+									<Card className="border-0">
+										<CardBody>
+											<Label htmlFor="phone number">
+												<Input
+													className="mx-1 my-1"
+													type="tel"
+													id="phone number"
+													name="phoneNum"
+													value={this.state.phoneNum}
+													placeholder="phone number"
+													onChange={this.handleSelection}
+												/>
+											</Label>
+										</CardBody>
+									</Card>
+								</Col>
+							</Row>
+						</Card>
+					</Col>
+				</Row>
 
 				<Row>
 					<Col>
@@ -168,13 +186,13 @@ class OrderCard extends Component {
 								</Col>
 							</Row>
 
-							<Row>
+							<Row className="mx-1">
 								<Col>
 									<Card className="border-0">
 										<CardBody>
 											<Button
 												block
-												className="border-danger btn-block "
+												className="border-danger "
 												onClick={this.handleSelection}
 												name="temp"
 												value="Hot"
@@ -188,12 +206,12 @@ class OrderCard extends Component {
 										</CardBody>
 									</Card>
 								</Col>
-								<Col>
+								<Col className="mx-1">
 									<Card className="border-0">
 										<CardBody>
 											<Button
 												block
-												className="border-primary btn-block"
+												className="border-primary "
 												onClick={this.handleSelection}
 												name="temp"
 												value="Iced"
@@ -208,7 +226,7 @@ class OrderCard extends Component {
 									</Card>
 								</Col>
 							</Row>
-							<Row className="mt-3">
+							<Row className="mt-2 mb-3 mx-1">
 								<Col lg="4">
 									<Card className="border-0">
 										<CardBody className="p-1">
@@ -283,7 +301,7 @@ class OrderCard extends Component {
 							<CardImgOverlay>
 								<Row>
 									<Col>
-										<h2>Sweetness</h2>
+										<h2>Sugar Level</h2>
 									</Col>
 								</Row>
 							</CardImgOverlay>
@@ -457,7 +475,7 @@ class OrderCard extends Component {
 				</Row>
 				<Row className="mt-3">
 					<Col>
-						<Card>
+						<Card className="shadow">
 							<CardImg src="assets/bobaCup.jpg" />
 							<CardImgOverlay>
 								<Row>
@@ -469,44 +487,41 @@ class OrderCard extends Component {
 
 							<Row className="mt-3">
 								<Col>
-									<Card className="shadow-sm ">
+									<Card className="shadow mx-2 boxx test">
 										<CardBody>
-											<CardTitle />
-											Boba Pearls
+											Boba
 											<Input
+												className="checkbox"
 												type="checkbox"
-												value="Boba Pearls"
+												id="boba"
+												value=" Boba Pearls "
 												onChange={this.handleToppings}
-											>
-												Boba Pearls
-											</Input>
+											/>
 										</CardBody>
 									</Card>
 								</Col>
 								<Col>
-									<Card>
+									<Card className="shadow mx-2 boxx ">
 										<CardBody>
-											<CardTitle />
-											<h5>Adzuki Bean</h5>
+											<CardTitle>Adzuki Bean</CardTitle>
 
 											<Input
+												className="checkbox"
 												type="checkbox"
-												value="Adzuki Bean"
+												value=" Adzuki Bean "
 												onChange={this.handleToppings}
-											>
-												Red Bean
-											</Input>
+											/>
 										</CardBody>
 									</Card>
 								</Col>
 								<Col>
-									<Card>
+									<Card className="shadow mx-2">
 										<CardBody>
 											<CardTitle />
 											Tea Jelly
 											<Input
 												type="checkbox"
-												value="Tea Jelly"
+												value=" Tea Jelly "
 												onChange={this.handleToppings}
 											>
 												Tea Jelly
@@ -516,15 +531,14 @@ class OrderCard extends Component {
 								</Col>
 							</Row>
 
-							<Row className="mt-3">
+							<Row className="mt-2 mb-3">
 								<Col>
-									<Card>
+									<Card className="shadow mx-2">
 										<CardBody>
-											<CardTitle />
-											Pudding
+											Egg Pudding
 											<Input
 												type="checkbox"
-												value="Pudding"
+												value=" Egg Pudding "
 												onChange={this.handleToppings}
 											>
 												Pudding
@@ -533,13 +547,12 @@ class OrderCard extends Component {
 									</Card>
 								</Col>
 								<Col>
-									<Card>
+									<Card className="shadow mx-2">
 										<CardBody>
-											<CardTitle />
 											Mixed Fruit
 											<Input
 												type="checkbox"
-												value="Mixed Fruit"
+												value=" Mixed Fruit "
 												onChange={this.handleToppings}
 											>
 												Mixed Fruit
@@ -548,13 +561,12 @@ class OrderCard extends Component {
 									</Card>
 								</Col>
 								<Col>
-									<Card>
+									<Card className="shadow mx-2">
 										<CardBody>
-											<CardTitle />
-											Lychee Jelly Lychee Jelly
+											Lychee Jelly
 											<Input
 												type="checkbox"
-												value="Lychee Jelly"
+												value=" Lychee Jelly "
 												onChange={this.handleToppings}
 											></Input>
 										</CardBody>

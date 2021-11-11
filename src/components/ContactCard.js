@@ -56,13 +56,11 @@ function ContactCard() {
 								<a href="">
 									<BsInstagram size={25} />
 								</a>
-							</Col>
-							<Col>
+
 								<a href="">
 									<BsTwitter size={25} />
 								</a>
-							</Col>
-							<Col>
+
 								<a href="">
 									<BsFacebook size={25} />
 								</a>
